@@ -22,8 +22,6 @@
                                 </tr>
                             </thead>
 
-                                                                                    
-
                             <tbody>
                                 @forelse ($autores as $autor)  
                                 <tr>
@@ -34,7 +32,7 @@
                                         <form action="{{route('destroy', $autor->codigo_autor)}}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <a href="{{route('show', $autor->codigo_autor)}}" class="btn btn-info"> <i class="fa-solid fa-list"></i> Mostrar</a>
+                                            <a href="{{route('show', $autor->codigo_autor)}}" class="btn btn-info"> <i class="fa-solid fa-list"></i> Detalles</a>
                                             <a href="{{route('edit', $autor->codigo_autor)}}" class="btn btn-warning"><i class="fa-solid fa-user-pen"></i> Editar</a>
                                             <button class="btn btn-danger"><i class="fa-solid fa-trash"></i> Borrar</button>
                                         </form>

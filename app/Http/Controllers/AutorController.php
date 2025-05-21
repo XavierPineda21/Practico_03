@@ -29,6 +29,12 @@ class AutorController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'nombre_autor' => 'required',
+            'nacionalidad' => 'required'
+        ]);
+
         $codigos = Autor::pluck('codigo_autor')->map(function ($codigo) {
             return (int) substr($codigo, 3); 
         })->sort()->values();
@@ -79,6 +85,11 @@ class AutorController extends Controller
      */
     public function update(Request $request, string $codigo_autor)
     {
+        $request->validate([
+            'nombre_autor' => 'required',
+            'nacionalidad' => 'required'
+        ]);
+        
         $item = Autor::find($codigo_autor);
         $item->nombre_autor = $request->nombre_autor;
         $item->nacionalidad = $request->nacionalidad;
